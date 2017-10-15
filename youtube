@@ -1,0 +1,26 @@
+import os #os库是文件夹操作
+import json
+import random
+from bs4 import BeautifulSoup
+import pyodbc
+import creatdir
+import splitpage
+import code_maik
+import requests
+import pymysql
+import time
+import code_maik
+import NGZKcode
+import re
+
+
+proxies = {
+  "http": "http://127.0.0.1:1080",
+  "https": "http://127.0.0.1:1080",
+}
+
+page_adress = 'https://www.youtube.com/channel/UCUzpZpX2wRYOk3J8QTFGxDg'
+r = requests.get(page_adress, headers={'content-type': 'text/html; charset=UTF-8', 'User-Agent': 'Mozilla/5.0'},
+                 proxies=proxies)
+x = re.compile(r'a href="/watch?[^\"\&]+"').findall(r.text)
+print(x)
